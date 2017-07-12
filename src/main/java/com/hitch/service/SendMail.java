@@ -11,15 +11,16 @@ public class SendMail {
 	 
 	    public synchronized void sendMails(String toEmail, String subject,  String msg) {
 	 
-	    	   final String fromEmail = "@att.net";
-	           final String password = "Goblues2017";
+	    	final String fromEmail = "bdgroom123@gmail.com"; //requires valid gmail id
+            final String password = "Goblues20017"; // correct password for gmail id
+            //final String toEmail = ""; // can be any email id 
 
-	               Properties props = new Properties();
-	               props.put("mail.smtp.host", "smtp.mail.yahoo.com");
-	               props.put("mail.smtp.socketFactory.port", "587");
-	               props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-	               props.put("mail.smtp.auth", "true");
-	               props.put("mail.smtp.port", "587");
+            System.out.println("TLSEmail Start");
+            Properties props = new Properties();
+            props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
+            props.put("mail.smtp.port", "587"); //TLS Port
+            props.put("mail.smtp.auth", "true"); //enable authentication
+            props.put("mail.smtp.starttls.enable", "true"); 
 
 	           /*final String fromEmail = "@gmail.com";
 	           final String password = "pass";
@@ -31,17 +32,20 @@ public class SendMail {
 	               props.put("mail.smtp.auth", "true");
 	               props.put("mail.smtp.port", "465");*/
 	 
-	               Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-	                           protected PasswordAuthentication getPasswordAuthentication() {
-	                               return new PasswordAuthentication(fromEmail,password);
-	                           }
-	                       });
+            Authenticator auth = new Authenticator() {
+                //override the getPasswordAuthentication method
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(fromEmail, password);
+                }
+            };
+            Session session = Session.getInstance(props, auth);
+
 	 
 	               try {
-	 
-	                   Message message = new MimeMessage(session);
+	            	   MimeMessage message = new MimeMessage(session);
 	                   message.setFrom(new InternetAddress(fromEmail));
-	                   message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(toEmail));
+	                   message.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+
 	                   message.setSubject(subject);
 	                   message.setText(msg);
 	                   System.out.println("Mail message = " + message);

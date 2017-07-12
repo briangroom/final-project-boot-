@@ -32,6 +32,7 @@
     ======================================================= -->
   </head>
   <body>
+  
 	<header> 		
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="navigation">
@@ -182,17 +183,14 @@
 				</div>
 				
 				<div class="col-md-4 col-md-offset-4">
-					<div class="copyright">
-						&copy; Company Theme. All Rights Reserved.
-                        <div class="credits">
-                            <!-- 
-                                All the links in the footer should remain intact. 
-                                You can delete the links only if you purchased the pro version.
-                                Licensing information: https://bootstrapmade.com/license/
-                                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Company
-                            -->
-                            <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                        </div>
+					<div>
+						Thank you for visiting Gettin Hitched.
+					</div>
+					<div>
+						Website designed and brought to you by:
+					</div>
+					<div>
+						Brian Groom via Claim Academy.
 					</div>
 				</div>						
 			</div>

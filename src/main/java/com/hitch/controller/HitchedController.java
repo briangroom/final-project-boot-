@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.apache.log4j.Logger;
 
@@ -67,21 +68,27 @@ public class HitchedController {
 
 	
 	@RequestMapping("/signup")
-	public String signup(@ModelAttribute("signup") UserLogin userLogin, BindingResult bindingResult, ModelMap model)
+	public String signup(@ModelAttribute("signup") UserLogin userLogin, BindingResult bindingResult, ModelMap model, Model modeltest)
 			throws ParseException {
-		String msg = "Welcome to Gettin Hitched. Please Login now <a href='http://localhost:8080/hitched/login'>Login </a>";
+		String msg = "Hello " + userLogin.getFname() + ","
+				+ "\n\nWelcome to Gettin Hitched and thanks for registering. \n\n"
+				+ "Planning a wedding can be overwhelming and take away from what "
+				+ "you should really be doing, relaxing and enjoying your upcoming celebration. \n\n"
+				+ "We would love to know about any planning apps you have used lately, "
+				+ "so we can udate our ratings for couples like you. \n\n"
+				+ "Thanks!!\n   Gettin Hitched Team.";
 		System.out.println("in signup");
 		logger.info("#######################signup : ");
 
 		try {
 			logger.info("Id being passed is = " + userLogin.getEmailAddress());
 			if (hitchedService.findUser(userLogin.getEmailAddress()) == false) {
-				logger.info("******** This is a new user ");
+				logger.info("******** This is a new user "+userLogin.getEmailAddress());
 
 				if (userLogin.getPassword().equals(userLogin.getPasswordConfirm())) {
 					hitchedService.createUser(userLogin);
 					model.addAttribute("message",
-							"Welcome " + userLogin.getFname() +", please " + " <a href='/login'> Login </a>");
+							"Hello " + userLogin.getFname() +", Thanks for joining Gettin Hitched!");
 
 					try {
 						sendMail.sendMails(userLogin.getEmailAddress(), "Welcome to Gettin Hitched ", msg);
@@ -90,7 +97,7 @@ public class HitchedController {
 
 					} catch (Exception e) {
 						model.addAttribute("error",
-								"Error sending confirmation email to " + userLogin.getEmailAddress());
+								"Error sending confirmation email to " + userLogin.getEmailAddress()+e.getMessage());
 					}
 
 					return "login";
@@ -277,7 +284,7 @@ public class HitchedController {
 	// @RequestMapping(value = "/newlogin", method = RequestMethod.POST)
 		// since 'POST' is in the jsp, I don't need it here
 	@RequestMapping("/newlogin")
-	public String newlogin(@ModelAttribute("newlogin") UserLogin user, ModelMap model) throws ParseException {
+	public String newlogin(@ModelAttribute("newlogin") UserLogin user, ModelMap model, HttpServletRequest request) throws ParseException {
 
 		logger.info("user logged in : " + user.getEmailAddress());
 
@@ -291,6 +298,7 @@ public class HitchedController {
 				model.addAttribute("success", "Welcome " + userdetail.getFname());
 				model.addAttribute("attribs", userdetail);
 				model.addAttribute("user", userdetail.getFname());
+				request.getSession().setAttribute("myUser", userdetail);
 
 				return "profile";
 

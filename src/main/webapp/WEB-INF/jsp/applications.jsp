@@ -57,7 +57,7 @@
 								<li role="presentation"><a href="applications" class="active">Browse Reviews » </a></li>								
 								<li role="presentation"><a href="about">About Us » </a></li>
 								<li role="presentation"><a href="contact">Contact Us » </a></li>						
-								<c:if test="${empty user.fname}"> <%-- user not logged on --%>
+								<c:if test="${empty myUserName}"> <%-- user not logged on --%>
 								    <li role="presentation"><a href="appentry">Rate an App » </a></li>								
 									<li class="pull-right"><a href="logout" id="logout">Logout</a></li>
 									<%-- <li class="pull-right"><a href="logout" id="logout">${attribs.fname} | Logout</a></li> --%>
@@ -196,17 +196,14 @@
 				</div>
 				
 				<div class="col-md-4 col-md-offset-4">
-					<div class="copyright">
-						&copy; Company Theme. All Rights Reserved.
-                        <div class="credits">
-                            <!-- 
-                                All the links in the footer should remain intact. 
-                                You can delete the links only if you purchased the pro version.
-                                Licensing information: https://bootstrapmade.com/license/
-                                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Company
-                            -->
-                            <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                        </div>
+					<div>
+						Thank you for visiting Gettin Hitched.
+					</div>
+					<div>
+						Website designed and brought to you by:
+					</div>
+					<div>
+						Brian Groom via Claim Academy.
 					</div>
 				</div>						
 			</div>

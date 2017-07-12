@@ -129,10 +129,12 @@
 	<div class="container">
 		<div class="row">
             <div class="col-md-6">
-                <div class="credits">
-                    <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by 
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
+					<div>
+						Thank you for visiting Gettin Hitched.
+					</div>
+					<div>
+						Website designed and brought to you by: Brian Groom via Claim Academy.
+					</div>
             </div>
 		</div>		
 	</div>	

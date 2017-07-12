@@ -173,17 +173,14 @@
 				</div>
 				
 				<div class="col-md-4 col-md-offset-4">
-					<div class="copyright">
-						&copy; Company Theme. All Rights Reserved.
-                        <div class="credits">
-                            <!-- 
-                                All the links in the footer should remain intact. 
-                                You can delete the links only if you purchased the pro version.
-                                Licensing information: https://bootstrapmade.com/license/
-                                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Company
-                            -->
-                            <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                        </div>
+					<div>
+						Thank you for visiting Gettin Hitched.
+					</div>
+					<div>
+						Website designed and brought to you by:
+					</div>
+					<div>
+						Brian Groom via Claim Academy.
 					</div>
 				</div>						
 			</div>
@@ -207,153 +204,6 @@
 
 
 
-<%-- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gettin Hitched</title>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
-    <!-- Bootstrap -->
-    <link href="${contextPath}/resources/assets/css/bootstrap.css" rel="stylesheet">
-	<link href="${contextPath}/resources/assets/css/bootstrap-theme.css" rel="stylesheet">
-
-    <!-- siimple style -->
-    <link href="${contextPath}/resources/assets/css/style.css" rel="stylesheet">
-
-<!-- <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> -->
-
-</head>
-<body>
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Gettin Hitched</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-			<li><a href="/">Landing Page » </a></li>
-			<li><a href="signups">Sign up » </a></li>
-			<li><a href="login">Login » </a></li>
-			<li class="active"><a href="about">About Us » </a></li>
-			<li><a href="contact">Contact Us » </a></li>	
-            <!-- <li><a href="#">Sign up</a></li>
-			<li><a href="#">Sign in</a></li> -->
-			
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-<!-- 	<header style="background-color: #ff6600;">
-		<div class="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target=".navbar-collapse.collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-				</div>
-
-				<div class="navbar-collapse collapse">
-					<div class="menu">
-						<ul class="nav nav-tabs" role="tablist">
-							<li><a href="/">Home</a></li>
-							<li class="active"><a href="about">About Us</a></li>
-							<li><a href="signups">Sign up</a></li>
-							<li><a href="services">Look-Ups</a></li>
-							<li><a href="login">login</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</header> -->
-	
-	<div class="container">
-	<div class="row" >
-	<div class="col-lg-6">
-		<br>
-		<div class="text-center">
-			<div class="text-success">
-				<h1 class="panel-title">About Gettin Hitched App</h1>
-				<br>
-			</div>
-
-		</div>
-		<h2>The Gettin' Hitched App is here to bring all your wedding planning to one 
-		 place. With our app you can find and book all your needs in one place including 
-		 venues, photographers, florists, cakes, caterers, entertainers, and bar services.
-		 We're here for you. </h2>
-
-	</div>
-			
-		</div>
-	</div>
-
-	<div id="footer">
-	<div class="container">
-		<div class="row">
-			<!-- <div class="col-md-6">
-	            <p class="copyright">&copy; Siimple Theme</p>
-			</div> --> 
-            <div class="col-md-6">
-                <div class="credits">
-                    <!-- 
-                        All the links in the footer should re intact. 
-                        You can delete the links only if you purchased the pro version.
-                        Licensing information: https://bootstrapmade.com/license/
-                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Siimple
-                    -->
-                    <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
-		</div>		
-	</div>	
-	</div>
-
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="${contextPath}/resources/assets/js/bootstrap.min.js"></script>
-    
-</body>
-</html> --%>
-
-	<!-- <footer
-		style="background-color: #ff6600; position: fixed; bottom: 0; width: 100%;">
-		<div class="col-md-5 col-md-offset-5">
-			<div class="menu">
-				<ul class="nav nav-tabs" role="tablist">
-					<li><a href="/">Home</a></li>
-					<li><a href="about">About Us</a></li>
-					<li><a href="contact">Contact Us</a></li>
-
-				</ul>
-
-			</div>
-		</div>
-
-	</footer> 
-</body>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-</html> -->
 
 
 
