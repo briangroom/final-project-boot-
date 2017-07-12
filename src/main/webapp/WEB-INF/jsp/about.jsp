@@ -47,10 +47,10 @@
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
 								<li role="presentation"><a href="/">Home » </a></li>
-								<li role="presentation"><a href="about" class="active">About Us » </a></li>
-								<li role="presentation"><a href="services">Services</a></li>								
 								<li role="presentation"><a href="signups">Sign up » </a></li>
 								<li role="presentation"><a href="login">Login » </a></li>
+								<li role="presentation"><a href="applications">Browse Reviews » </a></li>								
+								<li role="presentation"><a href="about" class="active">About Us » </a></li>
 								<li role="presentation"><a href="contact">Contact Us » </a></li>						
 							</ul>
 						</div>

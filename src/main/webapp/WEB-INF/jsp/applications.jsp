@@ -54,12 +54,13 @@
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
 								<li role="presentation"><a href="/">Home » </a></li>
-								<li role="presentation"><a href="applications" class="active">Applications » </a></li>
+								<li role="presentation"><a href="applications" class="active">Browse Reviews » </a></li>								
 								<li role="presentation"><a href="about">About Us » </a></li>
 								<li role="presentation"><a href="contact">Contact Us » </a></li>						
 								<c:if test="${empty user.fname}"> <%-- user not logged on --%>
-									<li role="presentation"><a href="appentry">App Entry » </a></li>								
-									<li class="pull-right"><a href="logout" id="logout">${attribs.fname} | Logout</a></li>
+								    <li role="presentation"><a href="appentry">Rate an App » </a></li>								
+									<li class="pull-right"><a href="logout" id="logout">Logout</a></li>
+									<%-- <li class="pull-right"><a href="logout" id="logout">${attribs.fname} | Logout</a></li> --%>
 								</c:if>
 							</ul>
 						</div>
@@ -111,7 +112,7 @@
 			<br>
 			<c:if test="${not empty applications}">
 
-				<br><br><br>
+				<br>
 				<h4 style="color: #fd680e" class="pull-right">Website Features -
 				Rating scale is (1-5) for each feature 1=lowest 5=highest.</h4>
 				<table class="table table-hover table-bordered ">

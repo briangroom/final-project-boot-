@@ -35,6 +35,16 @@ public class AppsController {
 	private AppsService appsService;
 
 
+	@RequestMapping(value = "/browseapps", method = RequestMethod.GET)
+	public String browseapps(Model model) {
+
+		model.addAttribute("applications", appsService.getAllApps());
+		
+		logger.info("This is info : " + appsService.getAllApps());
+
+		return "browseapps";
+	}
+	
 	@RequestMapping(value = "/applications", method = RequestMethod.GET)
 	public String applications(Model model) {
 		/*model.addAttribute("msg", "This is a TEST!");

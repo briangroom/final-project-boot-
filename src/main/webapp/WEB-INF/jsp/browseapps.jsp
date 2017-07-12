@@ -1,21 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page import="java.text.NumberFormat"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page import="java.io.*,java.util.*"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="java.io.*,java.util.*" %>
 <%java.text.DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy"); %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gettin Hitched - Profile Page</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gettin Hitched - Login Page</title>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
     <!-- Bootstrap -->
@@ -23,6 +24,7 @@
 	<link rel="stylesheet" href="${contextPath}/resources/company/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${contextPath}/resources/company/css/animate.css">
 	<link href="${contextPath}/resources/company/css/prettyPhoto.css" rel="stylesheet">
+	<link href="${contextPath}/resources/company/css/style.css" rel="stylesheet" />		
 	<link href="${contextPath}/resources/company/css/style.css" rel="stylesheet" />		
     <!-- =======================================================
         Theme Name: Company
@@ -32,7 +34,7 @@
     ======================================================= -->
   </head>
   <body>
-	<header> 		
+	<header>		
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="navigation">
 				<div class="container">					
@@ -52,13 +54,9 @@
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
 								<li role="presentation"><a href="/">Home » </a></li>
-								<li role="presentation"><a href="newlogin" class="active">Profile » </a></li>
-								<li role="presentation"><a href="applications">Browse Reviews » </a></li>								
-								<li role="presentation"><a href="appentry">Rate an App » </a></li>								
+								<li role="presentation"><a href="browseapps" class="active">Browse Reviews » </a></li>								
 								<li role="presentation"><a href="about">About Us » </a></li>
 								<li role="presentation"><a href="contact">Contact Us » </a></li>						
-								<li class="pull-right"><a href="logout" id="logout">${attribs.fname}
-									| Logout</a></li>
 							</ul>
 						</div>
 					</div>						
@@ -71,101 +69,112 @@
 		<div class="container">	
 			<div class="breadcrumb">							
 				<li><a href="/">Home</a></li>
-				<li><a href="/login">Login</a></li>
-				<li>Profile</li>			
+				<li>Browse Reviews</li>			
 			</div>		
 		</div>	
 	</div>
-	
+
 	<div class="container">
 
-
-		<form id="resetpassword" method="post" action="admin">
-			<input type="hidden" name="id" value="${attribs.id}">
-		</form>
-
-		<form id="admin" method="post" action="admin">
-			<input type="hidden" name="id" value="${attribs.id}">
-		</form>
-
-		<form id="userEdits" method="post" action="userEdits">
-			<input type="hidden" name="id" value="${attribs.id}">
-		</form>
-
+		<%-- <div>
+			<h1 style="color: #fd680e">Welcome to Gettin Hitched Rating App</h1>
+			<h3 style="color: #fd680e">${msg}</h3>
+			<h2 style="color: #fd680e">${message}</h2>
+			<h2 style="color: #fd680e">${success}</h2>
+			<c:if test="${not empty error}">
+				<h2 style="color: #FF0000">${error}
+					<a href="applications">Retry</a>
+				</h2>
+			</c:if>
+		</div> --%>
+		<div style="color: #fd680e">
+			<h1>Welcome to Gettin Hitched Wedding App Rater</h1>
+			<h3>${msg}</h3>
+			<h2>${message}</h2>
+			<h2>${success}</h2>
+			<c:if test="${not empty error}">
+				<h2 style="color: #FF0000">${error}
+					<a href="applications">Retry</a>
+				</h2>
+			</c:if>
+		</div>
+		<div></div>
+	</div>
+ 
+ 
+ 	<div class="row">
 		<div>
-			<!-- <h1 style="color: #008000">Welcome to the club</h1> -->
+			<br>
+			<c:if test="${not empty applications}">
 
-			<p style="color: #008000">${msg}</p>
-			<h2 style="color: #008000">${message}</h2>
-			<h2 style="color: #008000">${success}</h2>
-			<h2 style="color: #FF0000">${error}</h2>
-			<h2 style="color: #008000">${email}</h2>
-			<h2 style="color: #008000">${myname}</h2>
-
-		</div>
-
-
-
-		<div class="row" style="color: black">
-			<div class="col-md-10">
-				<table class="table table-hover table-bordered">
-					<tr style="background-color: #bce8f1;">
-						<td>Date</td>
-						<td><span class="fa fa-calendar"
-							style="font-size: 18px; color: green; padding-top: 2px;">
-								Today <%= df.format(new java.util.Date()) %> 
-						</span></td>
-					</tr>
-					<tr>
-						<td>Name</td>
-						<td><span style="color: red" class="glyphicon glyphicon-user"></span>
-							<c:out value="${attribs.fname}" /> <c:out
-								value="${attribs.lname}" /></td>
-					</tr>
-					<tr>
-						<td>Contact Info</td>
-						<td><span style="color: red" class="fa fa-envelope fa"></span> <c:out
-								value="${attribs.emailAddress}" /></td>
-					</tr>
-
-					<tr>
-						<td>Address</td>
-						<td><span style="color: red" class="glyphicon glyphicon-home"></span>
-							<c:out value="${attribs.city}, " /> 
-							<c:out value="${attribs.state}" /> 
-					</tr>
-
+				<br>
+				<h4 style="color: #fd680e" class="pull-right">Website Features -
+				Rating scale is (1-5) for each feature 1=lowest 5=highest.</h4>
+				<table class="table table-hover table-bordered ">
+					<thead style="background-color: #ff6600;">
+						<tr>
+							<th>Website</th>
+							<th>Entered by</th>
+							<th>Date Tracker</th>
+							<th>Checklist</th>
+							<th>Venue Search</th>
+							<th>Vendor Search</th>
+							<th>Budget</th>
+							<th>Guest List</th>
+							<th>Book Hotel Block</th>
+							<th>Dress Search</th>
+							<th>Gift Registry</th>
+							<th>Forumn</th>
+							<th>Wedding Website</th>
+							<th>Overall Rating</th>
+							<th>Website Review</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${applications}" var="item">
+							<tr class="text-success">
+								<th><c:out value="${item.website}" /> </th>
+								<th><c:out value="${item.enteredBy}" /></th>
+								<th><c:out value="${item.dateTracker}" /></th>
+								<th><c:out value="${item.checklist}" /></th>
+								<th><c:out value="${item.venueSearch}" /></th>
+								<th><c:out value="${item.vendorSearch}" /></th>
+								<th><c:out value="${item.budget}" /></th>
+								<th><c:out value="${item.guestList}" /></th>
+								<th><c:out value="${item.bookHotelBlock}" /></th>
+								<th><c:out value="${item.dressSearch}" /></th>
+								<th><c:out value="${item.giftRegistry}" /></th>
+								<th><c:out value="${item.forumn}" /></th>
+								<th><c:out value="${item.weddingWebsite}" /></th>
+								<th><c:out value="${item.overallRating}" /></th>
+								<th><c:out value="${item.review}" /></th>
+							</tr>
+						</c:forEach>
+					</tbody>
 				</table>
-				
-				
-			</div>
-
+			</c:if>
 		</div>
+	</div>
 
-		<a class="btn btn-danger" id="edata"
-			onclick="document.forms['userEdits'].submit()">Update Profile </a>
-		<button type="button" class="btn btn-primary" data-toggle="collapse"
-			data-target="#show">Reset Password</button>
-			<br><br>
-		<form class="col-md-3" action="LookupApp" method="GET">
-			<div class="input-group add-on">
-				<input type="text" class="form-control"
-					placeholder="Look-up by Application" name="LookupApp"
-					id="LookupApp" SIZE='14'> <input type="hidden" name="id"
-					value="${attribs.id}">
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="submit">
-						<i class="glyphicon glyphicon-search" title="Enter Application Name"></i>
-					</button>
+
+<%-- 	<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h1>Gettin Hitched Application Entry</h1>
+					<h2 class="subtitle">Please feel free to add an application or review.</h2>
+					<form class="form-inline appentry" role="search" action="appentry" method="post">
+					  <div class="form-group">
+					    <input type="text" class="form-control" id="exampleInputApp" name="App Entry" 
+					    	id="appentry" SIZE='20' placeholder="Enter website url">
+					  </div>
+					  <button type="submit" class="btn btn-theme" >Add app/review</button>
+					</form>	
 				</div>
 			</div>
-		</form>
-
-	</div>
-	<br>
-	<div id="show" class="collapse">
-		<%@include file="getpswd.jsp"%>
-	</div>
+		</div>				
+ --%>
+ 
+ 
 	<footer>
 		<div class="footer">
 			<div class="container">
@@ -211,5 +220,6 @@
 	<script src="js/wow.min.js"></script>
 	<script src="js/functions.js"></script>
 	
-</body>
+  </body>
+
 </html>
